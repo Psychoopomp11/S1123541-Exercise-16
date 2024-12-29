@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Layout</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #87ceeb;
+    }
+
+    .container {
+      display: grid;
+      gap: 10px;
+      width: 90%;
+      max-width: 480px;
+    }
+
+    .box {
+      height: 50px;
+    }
+
+    .box1 {
+      background-color: #b4d455;
+    }
+
+    .box2, .box3, .box4 {
+      background-color: #00bcd4;
+    }
+
+    .gray-container {
+      display: grid;
+      gap: 5px;
+      grid-template-columns: 1fr;
+    }
+
+    .gray-box {
+      background-color: #d3d3d3;
+      height: 50px;
+    }
+
+    @media (min-width: 480px) {
+      .container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto auto auto;
+      }
+      .box1 {
+        grid-column: span 3;
+      }
+      .box2, .box3, .box4 {
+        grid-column: span 1;
+      }
+      .gray-container {
+        grid-column: span 3;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .gray-box {
+        height: 50px;
+      }
+    }
+
+    @media (max-width: 479px) {
+      .gray-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 50px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+    <div class="box box3"></div>
+    <div class="box box4"></div>
+    <div class="gray-container">
+      <div class="gray-box"></div>
+      <div class="gray-box"></div>
+      <div class="gray-box"></div>
+      <div class="gray-box"></div>
+    </div>
+  </div>
+</body>
+</html>
